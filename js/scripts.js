@@ -1,4 +1,4 @@
-
+var pokemonRepository = (function() {
 let pokemonList = [
   {
     name:'Bulbasaur', height:7, types:['grass', 'poison']
@@ -24,17 +24,33 @@ let pokemonList = [
 
 ];
 
-/*Validate pokemon height and add additional text.*/
-for (let i=0; i<pokemonList.length; i++)
-{
+document.write ("<h1> Part 1: forEach() Loops </h1>")
+pokemonList.forEach(function(pokemonData){
+  document.write(pokemonData.name + "</br>");
+});
 
-  if (pokemonList[i].height >= 4)
-  document.write("Pokemon " + pokemonList[i].name + "\'s" + " height is: " + pokemonList[i].height+"." +" WOW, that’s big!" + "<br>");
-  else{
-  document.write("Pokemon " + pokemonList[i].name + "\'s" + " height is: "  + pokemonList[i].height+". " + "<br>");
-  }
+
+document.write ("<h1> Part 2: IIFE </h1>")
+
+function getAll() {
+  return pokemonList;
 }
 
-/*Highlight one pokemon name*/
-let bigPoke = "Bulbasaur"
-document.getElementById("myFav").innerHTML=bigPoke;
+function add(pokemon) {
+  pokemonList.push(pokemon);
+}
+
+return {
+  getAll: getAll,
+  add: add
+};
+})();
+
+
+
+pokemonRepository.add({ name: 'Pika', height:3.5, type:['fighting','poison']  });
+
+pokemonRepository.getAll().forEach(function(getData){
+
+  document.write(" - " + getData.name + " - ");
+});
