@@ -24,13 +24,6 @@ let pokemonList = [
 
 ];
 
-document.write ("<h1> Part 1: forEach() Loops </h1>")
-pokemonList.forEach(function(pokemonData){
-  document.write(pokemonData.name + "</br>");
-});
-
-
-document.write ("<h1> Part 2: IIFE </h1>")
 
 function getAll() {
   return pokemonList;
@@ -40,9 +33,29 @@ function add(pokemon) {
   pokemonList.push(pokemon);
 }
 
+function addListItem(pokemon) {
+let pokemonList = document.querySelector(".pokemon-list");
+let listpokemon = document.createElement("li");
+let button = document.createElement('button');
+button.addEventListener('click', function (event)
+{
+showDetails(pokemon.name);
+});
+button.innerText = pokemon.name;
+button.classList.add("button-class");
+listpokemon.appendChild(button);
+pokemonList.appendChild(listpokemon);
+}
+
+function showDetails(pokemon) {
+    console.log(pokemon);
+}
+
 return {
   getAll: getAll,
-  add: add
+  add: add,
+  addListItem: addListItem
+
 };
 })();
 
@@ -50,7 +63,6 @@ return {
 
 pokemonRepository.add({ name: 'Pika', height:3.5, type:['fighting','poison']  });
 
-pokemonRepository.getAll().forEach(function(getData){
-
-  document.write(" - " + getData.name + " - ");
+pokemonRepository.getAll().forEach(function(pokemon){
+pokemonRepository.addListItem(pokemon);
 });
