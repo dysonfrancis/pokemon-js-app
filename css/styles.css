@@ -1,10 +1,7 @@
 .button-class{
-  background-color: blue;
-  text-align: center;
- color: white;
-  font-size: 20px;
-  border-radius: 30%;
-  margin: 5px;
-  width: 150px;
-
+  border: 2px blue solid;
+  height: 50px;
+  margin-bottom: 10px;
+  width:150px;
+  border-radius: 5px;
 }
