@@ -59,7 +59,7 @@ var pokemonRepository = (function() {
         console.log(pokemon);
       });
     }).catch(function (e) {
-      console.error(e);
+      console.error();
     })
   }
 
@@ -73,7 +73,7 @@ var pokemonRepository = (function() {
       item.height = details.height;
       item.types = details.types;
     }).catch(function (e) {
-      console.error(e);
+      console.error();
     });
   }
 
