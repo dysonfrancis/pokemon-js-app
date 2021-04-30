@@ -1,16 +1,18 @@
 
+//IIFE and repository of the project
 var pokemonRepository = (function() {
   let pokemonList = [];
 
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+// Function to return pokemon list
   function getAll() {
     return pokemonList;
   }
 
+// Function to add pokemons to list
   function add(pokemon) {
-    if (
-      typeof pokemon === "object" &&
+    if (typeof pokemon === "object" &&
       "name" in pokemon
     ) {
       pokemonList.push(pokemon);
@@ -19,6 +21,7 @@ var pokemonRepository = (function() {
     }
   }
 
+ // Create and display pokemon list and buttons
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
@@ -33,11 +36,15 @@ var pokemonRepository = (function() {
     pokemonList.appendChild(listItem);
   }
 
+
+// Display pokemon details
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
   }
+
+
 
   function loadList() {
     return fetch(apiUrl).then(function (response) {
@@ -58,7 +65,7 @@ var pokemonRepository = (function() {
 
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
+    return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (details) {
       // Now we add the details to the item
