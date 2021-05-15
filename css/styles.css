@@ -1,7 +1,27 @@
-.button-class{
-  border: 2px blue solid;
-  height: 50px;
-  margin-bottom: 10px;
-  width:150px;
-  border-radius: 5px;
+//Body Styling
+Body {
+  background-color: lightgreen;
+  text-align: center;
+}
+
+//Button Styling
+.selected
+{
+  background-color: #4caf50;
+  Vertical Size: 6px;
+  Horizontal Size: 12px;
+  Border Size: 1px;
+  width: 150px;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5%;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+//Remove LI bullent points
+li{
+  list-style: none
 }
