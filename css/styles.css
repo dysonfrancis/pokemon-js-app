@@ -1,10 +1,10 @@
-//Body Styling
+/* Body Styling  */
 Body {
   background-color: lightgreen;
   text-align: center;
 }
 
-//Button Styling
+/* Button Styling */
 .selected
 {
   background-color: #4caf50;
@@ -21,7 +21,7 @@ Body {
   font-size: 16px;
 }
 
-//Remove LI bullent points
+/* Remove LI bullet points */
 li{
   list-style: none
 }
