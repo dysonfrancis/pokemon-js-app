@@ -5,18 +5,18 @@ let pokemonRepository = (function () {
 
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  // Function to add pokemons to list
+// Function to add pokemons to list
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
 
-  // Function to return pokemon list
+// Function to return pokemon list
   function getAll() {
     return pokemonList;
   }
 
-  // Create and display pokemon list and buttons
-  function addListItem(pokemon) {
+// Create and display pokemon list and buttons
+function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listpokemon = document.createElement("li");
     let button = document.createElement("button");
@@ -29,7 +29,7 @@ let pokemonRepository = (function () {
     });
   }
 
-  //Load API and promise
+//Load API and promise
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -47,7 +47,7 @@ let pokemonRepository = (function () {
     })
   }
 
-  //Load API item details and Promise
+//Load API item details and Promise
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -62,14 +62,16 @@ let pokemonRepository = (function () {
     });
   }
 
-  // Display pokemon details as an alert
+// Display pokemon details as an alert
   function showDetails(item) {
+
+
     pokemonRepository.loadDetails(item).then(function () {
-      alert('Pokemon Name: ' + item.name + "\n" + 'Pokemon Image URL: ' + item.imageUrl + "\n" + 'Pokemon Height: '+ item.height + "\n" + 'Pokemon Types: ' +item.types);
+      alert('Pokemon Name: ' + item.name + "\n" + 'Pokemon Image URL: ' + item.imageUrl + "\n" + 'Pokemon Height: '+ item.height + "\n" + 'Pokemon Types: ' + JSON.stringify(item.types));
     });
   }
-  
-  //return function values
+
+//return function values
   return {
     add: add,
     getAll: getAll,
