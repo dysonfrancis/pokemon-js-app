@@ -6,14 +6,13 @@ Button Background (Yellow): #080808
 Font: font-family: 'Quicksand', sans-serif;
 */
 
-
 :root {
   --bgcolor: #b0aea9;
   --textcolor: #3339db;
   --h1color: #ffffff;
   --h5color: #FFFFFF;
   --buttonbg: #080808;
-  --font: 'Quicksand', sans-serif;
+  --font: 'Quicksand', sans-serif
 }
 
 
@@ -40,7 +39,7 @@ ul {
 .list-group-item {
   border: none;
   width: 75%;
-	height: 5%
+	height: 5%;
   padding: 12px 28px;
   font-family: inherit;
   color: var(--textcolor);
@@ -50,7 +49,8 @@ ul {
   font-size: 20px;
   font-weight: bold;
   margin: 4px 2px;
-  /* -webkit-transition-duration: 0.4s; /* Safari */ */
+  -webkit-transition-duration: 0.4s; /* Safari */
+
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: var(--buttonbg);
