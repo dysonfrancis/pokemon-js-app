@@ -28,55 +28,42 @@ let pokemonRepository = (function () {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   function loadList() {
     return fetch(apiUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (json) {
-        json.results.forEach(function (item) {
-          let pokemon = {
-            name: item.name,
-            detailsUrl: item.url
-          };
-          add(pokemon);
-        });
-      })
-      .catch(function (e) {
-        /* eslint-disable no-console */
-        console.error(e);
-        /* eslint-enable no-console */
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
       });
+    })
+    .catch(function (e) {
+      /* eslint-disable no-console */
+      console.error(e);
+      /* eslint-enable no-console */
+    });
   }
   function loadDetails(pokemon) {
     let url = pokemon.detailsUrl;
     return fetch(url)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (details) {
-        pokemon.imageUrl = details.sprites.front_default;
-        pokemon.height = details.height;
-        pokemon.types = [...details.types];
-      })
-      .catch(function (e) {
-        /* eslint-disable no-console */
-        console.error(e);
-        /* eslint-enable no-console */
-      });
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (details) {
+      pokemon.imageUrl = details.sprites.front_default;
+      pokemon.height = details.height;
+      pokemon.types = [...details.types];
+    })
+    .catch(function (e) {
+      /* eslint-disable no-console */
+      console.error(e);
+      /* eslint-enable no-console */
+    });
   }
 
   function showDetails(pokemon) {
