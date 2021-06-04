@@ -1,5 +1,5 @@
 /* eslint-env es6 */
-/* eslint-disable */ 
+/* eslint-disable */
 
 let pokemonRepository = (function () {
   let pokemonList = [];
